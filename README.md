@@ -17,3 +17,4 @@ Gameplay
 <img width="1512" height="982" alt="5" src="https://github.com/user-attachments/assets/d6466564-d3e6-46a2-b312-5e2a98038cf1" />
 
 All Code and Art Assets are Human Made and no AI gen content is present in this project.
+Itch.io Link: https://prosopon.itch.io/flappy-skull
