@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwl3ktn44k08"]
+
+[ext_resource type="Texture2D" uid="uid://bns4uv5xsqgfn" path="res://WizGroun2d.png" id="1_yh8r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7tip"]
+size = Vector2(319, 88)
+
+[node name="Ground" type="StaticBody2D" groups=["pillar"]]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 45)
+texture = ExtResource("1_yh8r4")
+region_rect = Rect2(0, 0, 320, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(159.5, 46)
+shape = SubResource("RectangleShape2D_t7tip")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=23 format=3 uid="uid://du6c6fwtjue5t"]
+
+[ext_resource type="Script" uid="uid://dgdgvnbe0xrax" path="res://pausemenu.gd" id="1_ucuyg"]
+[ext_resource type="Texture2D" uid="uid://bxfugue7xipg2" path="res://iconswhitev2.png" id="2_qu36y"]
+[ext_resource type="Texture2D" uid="uid://wtk20w65oc0g" path="res://iconswhitev3.png" id="3_qu36y"]
+[ext_resource type="Texture2D" uid="uid://cs1i4rx1pikxa" path="res://iconswhite.png" id="3_v7fcu"]
+[ext_resource type="Script" uid="uid://buyxg474rfxs" path="res://button.gd" id="4_ifua1"]
+[ext_resource type="PackedScene" uid="uid://baua2jfwnen8x" path="res://volume_control.tscn" id="6_v7fcu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukwlx"]
+texture = ExtResource("2_qu36y")
+region_rect = Rect2(83, 99, 10, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu36y"]
+texture = ExtResource("3_qu36y")
+region_rect = Rect2(99, 99, 10, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7fcu"]
+texture = ExtResource("3_qu36y")
+region_rect = Rect2(99, 99, 10, 11)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifua1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onc8m"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 65, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qsvx"]
+texture = ExtResource("2_qu36y")
+region_rect = Rect2(97, 65, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ep3pr"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 65, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onc8m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6quo"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 49, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uusyb"]
+texture = ExtResource("2_qu36y")
+region_rect = Rect2(97, 49, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpq86"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 49, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6quo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwbuu"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 81, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v80v"]
+texture = ExtResource("2_qu36y")
+region_rect = Rect2(97, 81, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8h7b"]
+texture = ExtResource("3_v7fcu")
+region_rect = Rect2(81, 81, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwbuu"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ucuyg")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_bottom = 15.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="Button" type="Button" parent="MarginContainer2"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ukwlx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qu36y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v7fcu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ifua1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_onc8m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0qsvx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ep3pr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_onc8m")
+script = ExtResource("4_ifua1")
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uusyb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dpq86")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e6quo")
+script = ExtResource("4_ifua1")
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_cwbuu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4v80v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8h7b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwbuu")
+script = ExtResource("4_ifua1")
+
+[node name="Control" parent="." instance=ExtResource("6_v7fcu")]
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

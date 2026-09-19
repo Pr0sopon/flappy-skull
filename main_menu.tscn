@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://ocklwr2o4004"]
+
+[ext_resource type="Script" uid="uid://b2x7xgrs5vtue" path="res://main_menu.gd" id="1_jix8l"]
+[ext_resource type="Texture2D" uid="uid://coawap7o17qgy" path="res://MenuSpriteFrames.png" id="2_glbon"]
+[ext_resource type="FontFile" uid="uid://c38bh78fgs1gg" path="res://edit-undo.brk.ttf" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dn7bci8xvfifv" path="res://iconswhitev4.png" id="3_glbon"]
+[ext_resource type="Script" uid="uid://cweyrowbp0f6y" path="res://menu_skull.gd" id="3_nlkkf"]
+[ext_resource type="Script" uid="uid://buyxg474rfxs" path="res://button.gd" id="6_nlkkf"]
+[ext_resource type="PackedScene" uid="uid://baua2jfwnen8x" path="res://volume_control.tscn" id="7_qe12f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlkkf"]
+atlas = ExtResource("2_glbon")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
+atlas = ExtResource("2_glbon")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("2_glbon")
+region = Rect2(32, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("2_glbon")
+region = Rect2(48, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0o4t1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlkkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy7ct")
+}],
+"loop": true,
+"name": &"sock",
+"speed": 1.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(129, 65, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qe12f"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(161, 65, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(129, 65, 30, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qtwp"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(129, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dy7ct"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(161, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k4wn"]
+texture = ExtResource("3_glbon")
+region_rect = Rect2(129, 81, 30, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jix8l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 20
+
+[node name="MenuSkull" type="AnimatedSprite2D" parent="MarginContainer"]
+position = Vector2(51.999992, 91)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_0o4t1")
+animation = &"sock"
+script = ExtResource("3_nlkkf")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jix8l")
+theme_override_font_sizes/font_size = 32
+
+[node name="Seperator" type="Control" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nlkkf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qe12f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0o4t1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
+script = ExtResource("6_nlkkf")
+
+[node name="Settings" type="Button" parent="MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_8qtwp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dy7ct")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0k4wn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jix8l")
+script = ExtResource("6_nlkkf")
+
+[node name="Control" parent="." instance=ExtResource("7_qe12f")]
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

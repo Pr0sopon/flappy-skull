@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://baua2jfwnen8x"]
+
+[ext_resource type="Texture2D" uid="uid://d1iq50dh7k3vj" path="res://iconswhitev5.png" id="1_ekq8c"]
+[ext_resource type="Script" uid="uid://bb1tu0xp36apw" path="res://volume_control.gd" id="1_g8ghi"]
+[ext_resource type="FontFile" uid="uid://c38bh78fgs1gg" path="res://edit-undo.brk.ttf" id="1_g663n"]
+[ext_resource type="Texture2D" uid="uid://ccvf77mp6w2en" path="res://iconswhitev6.png" id="2_qfdll"]
+[ext_resource type="Script" uid="uid://figvhr5dfwn1" path="res://master.gd" id="5_kbmu6"]
+[ext_resource type="Script" uid="uid://8n6sl1a7deuq" path="res://sfx.gd" id="6_j0jgc"]
+[ext_resource type="Script" uid="uid://dmnl56jkenk0o" path="res://bgm.gd" id="7_goqlr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfdll"]
+atlas = ExtResource("2_qfdll")
+region = Rect2(132, 132, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g663n"]
+atlas = ExtResource("2_qfdll")
+region = Rect2(132, 116, 6, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfdll"]
+texture = ExtResource("1_ekq8c")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(131, 102, 58, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g663n"]
+texture = ExtResource("1_ekq8c")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(146, 118, 58, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekq8c"]
+texture = ExtResource("1_ekq8c")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(146, 118, 58, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goqlr"]
+texture = ExtResource("1_ekq8c")
+region_rect = Rect2(81, 81, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcuvk"]
+texture = ExtResource("1_ekq8c")
+region_rect = Rect2(97, 81, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_neodi"]
+texture = ExtResource("1_ekq8c")
+region_rect = Rect2(81, 81, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qcrja"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_g8ghi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_g663n")
+text = " Master"
+
+[node name="Master" type="HSlider" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(155, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_qfdll")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_g663n")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qfdll")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_g663n")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ekq8c")
+max_value = 3.0
+step = 0.001
+script = ExtResource("5_kbmu6")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_g663n")
+text = " SFX"
+
+[node name="SFX" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(155, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_qfdll")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_g663n")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qfdll")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_g663n")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ekq8c")
+max_value = 3.0
+step = 0.001
+script = ExtResource("6_j0jgc")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_g663n")
+text = " BGM"
+
+[node name="BGM" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(155, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_qfdll")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_g663n")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qfdll")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_g663n")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ekq8c")
+max_value = 3.0
+step = 0.001
+script = ExtResource("7_goqlr")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -110.0
+offset_top = -65.0
+offset_right = -91.0
+offset_bottom = 32.0
+
+[node name="Return" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_goqlr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wcuvk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_neodi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qcrja")
+
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer3/BGM" to="." method="_on_bgm_value_changed"]
+[connection signal="pressed" from="VBoxContainer2/Return" to="." method="_on_return_pressed"]
